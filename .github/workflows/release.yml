@@ -35,4 +35,6 @@ jobs:
           run: make
 
         - name: test
-          run: pstk --extension --schema-path=postxml--1.0.sql . test
+          run: |
+            sudo systemctl start postgresql
+            pstk --extension --schema-path=postxml--1.0.sql . test
