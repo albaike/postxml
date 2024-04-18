@@ -24,7 +24,7 @@ jobs:
           run: |
             sudo apt install -y postgresql-common
             sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
-            sudo apt install -y libxslt1-dev libxslt1.1 libxml2 libxml2-dev postgresql-16 postgresql-server-dev-16 postgresql-16-client
+            sudo apt install -y libxslt1-dev libxslt1.1 libxml2 libxml2-dev postgresql-16 postgresql-server-dev-16 postgresql-client-16
             python -m pip install --upgrade pip
             pip install pstk
 
