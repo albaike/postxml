@@ -37,6 +37,6 @@ jobs:
 
         - name: Install and test extension
           run: |
-            sudo systemctl start postgresql@16-main
+            sudo systemctl start postgresql
             sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
             pstk --extension --schema-path=postxml--1.0.sql . test
