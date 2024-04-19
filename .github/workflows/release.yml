@@ -27,7 +27,6 @@ jobs:
             sudo apt install -y postgresql-16 postgresql-client-16
             sudo apt remove -y postgresql-14 postgresql-client-14
             sudo systemctl start postgresql
-            sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
             sudo apt install -y libxslt1-dev libxslt1.1 libxml2 libxml2-dev postgresql-server-dev-16
             python -m pip install --upgrade pip
             pip install pstk
