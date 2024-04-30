@@ -1,5 +1,19 @@
 create schema postxml_test;
 
+create function postxml_test.test_xsd_fail()
+returns void as $$
+begin
+    perform postxml.xsl_transform(
+        postxml.read_text('/tmp/fail.xsd')::xml,
+        postxml.read_text('/tmp/fail.xsd')::xml
+    );
+
+    raise exception 'XSD failure not raised.';
+exception
+    when others then return;
+end;
+$$ language plpgsql;
+
 create function postxml_test.test_xsd()
 returns void as $$
 begin
