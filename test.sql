@@ -24,13 +24,6 @@ begin
         raise exception 'XMLSchema 1.0 not valid against itself';
     end if;
 
-    if postxml.xsd_validate(
-        postxml.read_text('/tmp/XMLSchema-10.xsd')::xml,
-        postxml.read_text('/tmp/fail.xsd')::xml
-    ) then
-        raise exception 'XSD validated invalid XML Schema.';
-    end if;
-
     perform postxml_test.test_xsd_fail();
     return;
 end;
