@@ -1,0 +1,15 @@
+FROM albaike/pstk:latest
+
+USER root
+RUN apt install -y libxslt1-dev libxslt1.1 libxml2 libxml2-dev 
+
+USER postgres
+WORKDIR /postxml
+COPY . .
+
+EXPOSE 5432
+
+RUN echo 'export PSTK_ARGS="--extension --schema-path=postxml--1.0.sql /postxml test"' \
+    >> ~/.env
+
+CMD ["bash", "/docker_postgres.sh"]
