@@ -14,6 +14,9 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
 
+        - name: Build the postxml image
+          run: docker build -t albaike/postxml:latest .
+
         - name: Build the test image
           run: docker build -t test -f Dockerfile.test .
 
