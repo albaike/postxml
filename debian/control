@@ -1,0 +1,12 @@
+Source: postxml
+Section: misc
+Priority: optional
+Maintainer: albaike <albaike@proton.me>
+Build-Depends: debhelper (>= 11), postgresql-server-dev-16, libxslt1-dev, libxml2-dev 
+Standards-Version: 4.1.4
+
+Package: postgresql-16-postxml
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-16, libxml2, libxslt1.1
+Description: PostgreSQL extension for XML processing
+ This package provides the postxml extension for PostgreSQL, which allows XML processing within PostgreSQL.

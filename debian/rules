@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	PATH=/usr/lib/postgresql/16/bin:$(PATH) make
+
+override_dh_auto_install:
+	PATH=/usr/lib/postgresql/16/bin:$(PATH) make install DESTDIR=$(CURDIR)/debian/postgresql-16-postxml

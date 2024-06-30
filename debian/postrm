@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+# Automatically added by dh_installdeb
+dpkg-maintscript-helper rm_conffile /etc/postgresql-common/createcluster.conf 10~ -- "$@"
+# End automatically added section
+
+# Disable the extension in the default cluster
+PG_VERSION=$(ls /etc/postgresql)
+for VER in $PG_VERSION; do
+    if [ -d "/etc/postgresql/$VER/main" ]; then
+        sudo -u postgres psql -d postgres -c "DROP EXTENSION IF EXISTS postxml;"
+    fi
+done
+
+exit 0
