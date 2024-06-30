@@ -18,7 +18,7 @@ jobs:
           run: docker build -t albaike/postxml:latest .
 
         - name: Extract the debian package
-          run:
+          run: |
             docker create --name temp albaike/postxml:latest
             docker cp temp:/postxml/postgresql-16-postxml_1.0-1_amd64.deb .
             docker rm temp
