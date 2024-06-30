@@ -23,7 +23,6 @@ jobs:
             docker cp temp:/postxml/postgresql-16-postxml_1.0-1_amd64.deb .
             docker rm temp
 
-
         - name: Create Release
           id: create_release
           uses: actions/create-release@v1
@@ -44,3 +43,4 @@ jobs:
             upload_url: ${{ steps.create_release.outputs.upload_url }}
             asset_path: ./postgresql-16-postxml_1.0-1_amd64.deb
             asset_name: postgresql-16-postxml_1.0-1_amd64.deb
+            asset_content_type: application/vnd.debian.binary-package
